@@ -15,7 +15,7 @@ app.post('/posts', async (req, res) => {
     res.status(201).json(post);
   } catch (error) {
     console.error('Error al crear el post:', error);
-    res.status(500).json({ error: 'Error al crear el post.' });
+    res.status(500).json({ error: 'Error al crear el post' });
   }
 });
 
@@ -25,7 +25,7 @@ app.get('/posts', async (req, res) => {
     res.status(200).json(posts);
   } catch (error) {
     console.error('Error al obtener los posts:', error);
-    res.status(500).json({ error: 'Error al obtener los posts.' });
+    res.status(500).json({ error: 'Error al obtener los posts' });
   }
 });
 
@@ -34,13 +34,13 @@ app.delete('/posts/:id', async (req, res) => {
     const { id } = req.params;
     const deleted = await Post.destroy({ where: { id } });
     if (deleted) {
-      res.status(200).json({ message: 'Post eliminado con éxito.' });
+      res.status(200).json({ message: 'Post eliminado con éxito' });
     } else {
-      res.status(404).json({ error: 'Post no encontrado.' });
+      res.status(404).json({ error: 'Post no encontrado' });
     }
   } catch (error) {
     console.error('Error al eliminar el post:', error);
-    res.status(500).json({ error: 'Error al eliminar el post.' });
+    res.status(500).json({ error: 'Error al eliminar el post' });
   }
 });
 
@@ -55,11 +55,11 @@ app.put('/posts/:id', async (req, res) => {
       await post.save();
       res.status(200).json(post);
     } else {
-      res.status(404).json({ error: 'Post no encontrado.' });
+      res.status(404).json({ error: 'Post no encontrado' });
     }
   } catch (error) {
     console.error('Error al actualizar el post:', error);
-    res.status(500).json({ error: 'Error al actualizar el post.' });
+    res.status(500).json({ error: 'Error al actualizar el post' });
   }
 });
 
